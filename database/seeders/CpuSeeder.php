@@ -38,20 +38,118 @@ class CpuSeeder extends Seeder
                     'margin_for_error' => 'Low',
                 ],
                 'first_seen' => 'Q1 2025',
-                'store_urls' => [
-                    'amazon' => 'https://www.amazon.com.br/Processador-AMD-Ryzen-9950X3D-Graphics/dp/B0DVZSG8D5/ref=asc_df_B0DVZSG8D5?mcid=a637ac5e095a30eaad94fbebe114bc7b&hvadid=709884378235&hvpos=&hvnetw=g&hvrand=1308529211578722872&hvpone=&hvptwo=&hvqmt=&hvdev=c&hvdvcmdl=&hvlocint=&hvlocphy=9101722&hvtargid=pla-2408213641585&psc=1&hvocijid=1308529211578722872-B0DVZSG8D5-&hvexpln=0&language=pt_BR',
-                    'kabum' => 'https://www.kabum.com.br/produto/708039/processador-amd-ryzen-9-9950x3d-4-4-ghz-max-boos-clock-ate-5-5-ghz-cache-144mb-16-nucleos-threads-32-am5-100-100000719wof',
-                    'pichau' => 'https://www.pichau.com.br/processador-amd-ryzen-9-9950x3d-16-core-32-threads-4-3ghz-5-7ghz-turbo-cache-144mb-am5-100-100000719wof-br',
-                    'terabyteshop' => 'https://www.terabyteshop.com.br/produto/34738/processador-amd-ryzen-9-9950x3d-43ghz-57ghz-turbo-16-cores-32-threads-am5-sem-cooler-100-100000719wof',
-                ],
+                'store_urls' => $this->storeUrls(
+                    amazonAsin: 'B0DVZSG8D5',
+                    kabumPath: 'produto/708039/processador-amd-ryzen-9-9950x3d-4-4-ghz-max-boos-clock-ate-5-5-ghz-cache-144mb-16-nucleos-threads-32-am5-100-100000719wof',
+                    pichauPath: 'processador-amd-ryzen-9-9950x3d-16-core-32-threads-4-3ghz-5-7ghz-turbo-cache-144mb-am5-100-100000719wof-br',
+                    terabytePath: 'produto/34738/processador-amd-ryzen-9-9950x3d-43ghz-57ghz-turbo-16-cores-32-threads-am5-sem-cooler-100-100000719wof',
+                ),
             ],
+            [
+                'name' => 'AMD Ryzen 9 9950X',
+                'sku' => '100-100001277WOF',
+                'other_names' => 'AMD Ryzen 9 9950X 16-Core Processor',
+                'description' => '',
+                'class' => 'Desktop',
+                'socket' => 'AM5',
+                'clockspeed_ghz' => 4.3,
+                'turbo_speed_ghz' => 5.7,
+                'cores' => 16,
+                'threads' => 32,
+                'typical_tdp_w' => 170,
+                'cache' => [
+                    'l1_instruction' => '16 x 32 KB',
+                    'l1_data' => '16 x 48 KB',
+                    'l2' => '16 x 1024 KB',
+                    'l3' => '80 MB',
+                ],
+                'benchmark' => [
+                    'multithread_rating' => 65809,
+                    'single_thread_rating' => 4729,
+                    'samples' => 5519,
+                    'margin_for_error' => 'Low',
+                ],
+                'first_seen' => 'Q3 2024',
+                'store_urls' => $this->storeUrls(
+                    amazonAsin: 'B0D6NNRBGP',
+                    kabumPath: 'produto/609951/processador-amd-ryzen-9-9950x-4-3-ghz-5-7-ghz-cache-64-mb-16-nucleos-32-threads-am5-100-100001277wof',
+                    pichauPath: 'processador-amd-ryzen-9-9950x-16-core-32-threads-4-3ghz-5-7ghz-turbo-cache-80mb-am5-100-100001277wof',
+                    terabytePath: 'produto/30488/processador-amd-ryzen-9-9950x-43ghz-57ghz-turbo-16-cores-32-threads-am5-sem-cooler-100-100001277wof',
+                ),
+            ],
+            [
+                'name' => 'AMD Ryzen 9 9900X3D',
+                'sku' => '100-100001368WOF',
+                'other_names' => 'AMD Ryzen 9 9900X3D 12-Core Processor',
+                'description' => '',
+                'class' => 'Desktop',
+                'socket' => 'AM5',
+                'clockspeed_ghz' => 4.4,
+                'turbo_speed_ghz' => 5.5,
+                'cores' => 12,
+                'threads' => 24,
+                'typical_tdp_w' => 120,
+                'cache' => [
+                    'l1_instruction' => '12 x 32 KB',
+                    'l1_data' => '12 x 48 KB',
+                    'l2' => '12 x 1024 KB',
+                    'l3' => '140 MB',
+                ],
+                'benchmark' => [
+                    'multithread_rating' => 56238,
+                    'single_thread_rating' => 4646,
+                    'samples' => 860,
+                    'margin_for_error' => 'Low',
+                ],
+                'first_seen' => 'Q1 2025',
+                'store_urls' => $this->storeUrls(
+                    amazonAsin: 'B0DWGWN8GY',
+                    kabumPath: 'produto/708038/processador-amd-ryzen-9-9900x3d-4-4-ghz-max-boos-clock-ate-5-5-ghz-cache-140mb-12-nucleos-threads-24-am5-100-100001368wof',
+                    pichauPath: 'processador-amd-ryzen-9-9900x3d-12-core-24-threads-4-4ghz-5-5ghz-turbo-cache-140mb-am5-100-100001368wof',
+                    terabytePath: 'produto/34734/processador-amd-ryzen-9-9900x3d-44ghz-55ghz-turbo-12-cores-24-threads-am5-sem-cooler-100-100001368wof',
+                ),
+            ],
+
+
         ];
 
         foreach ($cpus as $cpu) {
             Cpu::query()->updateOrCreate(
-                ['name' => $cpu['name']],
+                ['sku' => $cpu['sku']],
                 $cpu,
             );
         }
+    }
+
+    private function storeUrls(
+        ?string $amazonAsin = null,
+        ?string $kabumPath = null,
+        ?string $pichauPath = null,
+        ?string $terabytePath = null,
+    ): array {
+        return [
+            'amazon' => $this->amazonUrl($amazonAsin),
+            'kabum' => $this->storeUrl('https://www.kabum.com.br', $kabumPath),
+            'pichau' => $this->storeUrl('https://www.pichau.com.br', $pichauPath),
+            'terabyteshop' => $this->storeUrl('https://www.terabyteshop.com.br', $terabytePath),
+        ];
+    }
+
+    private function amazonUrl(?string $asin): string
+    {
+        if (blank($asin)) {
+            return '';
+        }
+
+        return "https://www.amazon.com.br/dp/{$asin}";
+    }
+
+    private function storeUrl(string $baseUrl, ?string $path): string
+    {
+        if (blank($path)) {
+            return '';
+        }
+
+        return sprintf('%s/%s', rtrim($baseUrl, '/'), ltrim($path, '/'));
     }
 }
