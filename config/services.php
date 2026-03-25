@@ -35,4 +35,11 @@ return [
         ],
     ],
 
+    'telegram' => [
+        'api_id' => env('TELEGRAM_API_ID'),
+        'api_hash' => env('TELEGRAM_API_HASH'),
+        'default_channel' => env('TELEGRAM_DEFAULT_CHANNEL', '@pcbuildwizard'),
+        'session_path' => env('TELEGRAM_SESSION_PATH', storage_path('app/telegram/session.madeline')),
+    ],
+
 ];
