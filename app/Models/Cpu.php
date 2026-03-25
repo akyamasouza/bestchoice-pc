@@ -3,10 +3,12 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Attributes\Fillable;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 use MongoDB\Laravel\Eloquent\Model;
 
 #[Fillable([
     'name',
+    'sku',
     'other_names',
     'description',
     'class',
@@ -19,6 +21,7 @@ use MongoDB\Laravel\Eloquent\Model;
     'cache',
     'benchmark',
     'first_seen',
+    'store_urls',
 ])]
 class Cpu extends Model
 {
@@ -38,6 +41,12 @@ class Cpu extends Model
             'typical_tdp_w' => 'integer',
             'cache' => 'array',
             'benchmark' => 'array',
+            'store_urls' => 'array',
         ];
+    }
+
+    public function offers(): HasMany
+    {
+        return $this->hasMany(CpuOffer::class, 'cpu_id');
     }
 }
